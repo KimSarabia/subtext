@@ -1,3 +1,62 @@
 html {
-	/* insert style here */
+  /* insert style here */
+}
+.flagged-term {
+  background-color: #ffcccb;
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-weight: bold;
+}
+
+.flagged-term-modal {
+  background-color: rgb(205, 243, 240);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  position: absolute;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: auto;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+
+.flagged-term-modal button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.ignore-button {
+  background-color: #ff6b6b;
+}
+
+.fix-button {
+  background-color: #28a745;
+}
+
+.flagged-term-modal div {
+  display: flex;
+  gap: 1em;
+}
+
+.flagged-term-modal p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.down-arrow {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid rgb(205, 243, 240);
 }
