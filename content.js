@@ -1,14 +1,33 @@
 const flaggedTerms = {
-  'female scientist':
-    'Consider whether gender is necessary. Wikipedia style prefers gender-neutral phrasing.',
-  chairman: "Use 'chairperson' or 'chair' unless the title is official.",
-  manpower: "Consider 'workforce' or 'personnel' for gender-neutral phrasing.",
-  businessman: "Try 'businessperson' or just 'entrepreneur'.",
-  unmanned: "Use 'uncrewed' or 'autonomous' where appropriate.",
+  "female scientist":'Consider whether gender is necessary. Wikipedia style prefers gender-neutral phrasing.',
+  "chairman": "Use 'chairperson' or 'chair' unless the title is official.",
+  "manpower": "Consider 'workforce' or 'personnel' for gender-neutral phrasing.",
+  "businessman": "Try 'businessperson' or just 'entrepreneur'.",
+  "unmanned": "Use 'uncrewed' or 'autonomous' where appropriate.",
+  "waitress": "Use 'server' or 'waitstaff'.",
+  "wife": "Use 'spouse' or 'partner'.",
+  "husband": "Use 'spouse' or 'partner'.",
+  "salesman": "Use 'salesperson' or 'sales associate'.",
+  "mankind": "Use 'humanity' or 'humankind' instead.",
+  "policeman": "Use 'police officer' or 'law enforcement officer'.",
+  "freshman": "Use 'first-year student' or 'new student'.",
+  "fireman": "Use 'firefighter' or 'fire service personnel'."
 }
 
 const replaceTerms = {
   chairman: 'Chairperson',
+  "businessman": 'Businessperson',
+  "waitress": 'Server',
+  "salesman": 'Salesperson',
+  "policeman": 'Police officer',
+  "freshman": 'First-year student',
+  "fireman": 'Firefighter',
+  "mankind": 'Humankind',
+  "unmanned": 'Uncrewed',
+  "manpower": 'Workforce',
+  "female scientist": 'Scientist',
+  "wife": 'Spouse',
+  "husband": 'Spouse',
 }
 
 const ignoredSet = new Set()
@@ -34,7 +53,6 @@ function scanAndFlag(node) {
       XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
       null
     )
-    console.log('hello world')
     for (let i = 0; i < matchingElements.snapshotLength; i++) {
       const element = matchingElements.snapshotItem(i)
       console.log({ element })
