@@ -8,26 +8,35 @@ const flaggedTerms = {
   "wife": "Use 'spouse' or 'partner'.",
   "husband": "Use 'spouse' or 'partner'.",
   "salesman": "Use 'salesperson' or 'sales associate'.",
-  "mankind": "Use 'humanity' or 'humankind' instead.",
   "policeman": "Use 'police officer' or 'law enforcement officer'.",
   "freshman": "Use 'first-year student' or 'new student'.",
   "fireman": "Use 'firefighter' or 'fire service personnel'."
 }
 
 const replaceTerms = {
-  chairman: 'Chairperson',
+  "chairman": 'Chairperson',
   "businessman": 'Businessperson',
   "waitress": 'Server',
   "salesman": 'Salesperson',
   "policeman": 'Police officer',
   "freshman": 'First-year student',
   "fireman": 'Firefighter',
-  "mankind": 'Humankind',
   "unmanned": 'Uncrewed',
   "manpower": 'Workforce',
   "female scientist": 'Scientist',
   "wife": 'Spouse',
   "husband": 'Spouse',
+}
+
+const getKey = (text)=>{
+  const lowerText = text.toLowerCase()
+  console.log(text)
+  for (const term in flaggedTerms) {
+    if (lowerText.includes(term)) {
+      return term
+    }
+  }
+  return null
 }
 
 const ignoredSet = new Set()
@@ -136,9 +145,9 @@ document.addEventListener('mouseover', (event) => {
     const description = document.createElement('p')
     description.textContent =
       'Perhaps you meant say: ' +
-      replaceTerms[event.target.innerText.toLowerCase()] +
+      replaceTerms[getKey(event.target.innerText.toLowerCase())] +
       '? ' +
-      flaggedTerms[event.target.innerText.toLowerCase()]
+      flaggedTerms[getKey(event.target.innerText.toLowerCase())]
 
     modal.appendChild(message)
 
